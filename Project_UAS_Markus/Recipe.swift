@@ -11,8 +11,9 @@ import Foundation
 struct Recipe {
     
     var name = ""
-    var ingredients = ""
     var tools = ""
+    var ingredients = ""
     var caraMasak = ""
+    var counter = 0
     
 }

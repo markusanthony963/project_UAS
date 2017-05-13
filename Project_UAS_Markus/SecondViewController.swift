@@ -8,6 +8,8 @@
 
 import UIKit
 
+
+
 class SecondViewController: UIViewController {
 
    
@@ -22,7 +24,7 @@ class SecondViewController: UIViewController {
         //let recipeIngredients = alatTF.text
         //let recipeTools = bahanTF.text
         
-        let aRecipe = Recipe(name: namaTF.text, ingredients: alatTF.text, tools: bahanTF.text, caraMasak: caraMasakTF.text)
+        let aRecipe = Recipe(name: namaTF.text, tools: alatTF.text, ingredients: bahanTF.text, caraMasak: caraMasakTF.text,counter:0)
         recipeArray.append(aRecipe)
         namaTF.text = ""
         alatTF.text = ""

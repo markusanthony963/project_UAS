@@ -13,6 +13,9 @@ var index = 0
 
 class FirstViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
 
+    var temp: Recipe = Recipe()
+    var counter = 0
+
    @IBOutlet var tableView: UITableView!
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
@@ -36,7 +39,9 @@ class FirstViewController: UIViewController,UITableViewDataSource,UITableViewDel
 
      func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
      {
-            performSegue(withIdentifier: "info", sender: self)
+        counter = indexPath.row
+        performSegue(withIdentifier:    "info", sender: self)
+        
      }
     
 
@@ -61,12 +66,22 @@ class FirstViewController: UIViewController,UITableViewDataSource,UITableViewDel
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.reloadData()
         // Do any additional setup after loading the view, typically from a nib.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+        let next = segue.destination as! InfoRecipeViewController
+
+        next.counter = counter
+        
     }
 
 
